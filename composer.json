@@ -1,0 +1,27 @@
+{
+    "name": "rcalicdan/process-killer",
+    "type": "library",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Rcalicdan\\ProcessKiller\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
