@@ -59,7 +59,7 @@ final class ProcessKiller
      */
     private static function killTreesWindowsChunk(array $chunk): void
     {
-        $pidArgs = implode(' ', array_map(static fn (int $pid) => "/PID {$pid}", $chunk));
+        $pidArgs = implode(' ', array_map(static fn(int $pid) => "/PID {$pid}", $chunk));
         $cmd = "cmd /c start /B taskkill /F /T {$pidArgs} >nul 2>nul";
 
         $descriptorSpec = [
@@ -222,6 +222,7 @@ final class ProcessKiller
 
         if (\is_string($output) && $output !== '') {
             foreach (explode("\n", trim($output)) as $childPid) {
+                $childPid = trim($childPid); 
                 if (ctype_digit($childPid) && (int) $childPid > 0) {
                     self::killTreeUnixFallback((int) $childPid);
                 }
